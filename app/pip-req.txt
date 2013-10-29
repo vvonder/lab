@@ -1,5 +1,10 @@
+Beaker==1.6.4
 Mako==0.9.0
 MarkupSafe==0.18
+SQLAlchemy==0.8.3
 argparse==1.2.1
 bottle==0.11.6
+bottle-cork==0.10
+pycrypto==2.6.1
+socialoauth==0.3.2
 wsgiref==0.1.2
