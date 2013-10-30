@@ -7,8 +7,11 @@ from beaker.middleware import SessionMiddleware
 
 import settings
 from views import app
+from utils.datastore import create_sqla_plugin
 
 bottle.TEMPLATE_PATH.insert(0, settings.TEMPLATES_ROOT)
+
+app.install(create_sqla_plugin())
 
 
 @app.route('/static/<filename:path>')
@@ -22,4 +25,4 @@ if 'SERVER_SOFTWARE' in os.environ:
     application = WSGIApplication(app)
 else:
     from bottle import run
-    run(app, host='0.0.0.0', reloader=True, debug=True)
+    run(app, host='0.0.0.0', reloader=True, debug=settings.DEBUG)
